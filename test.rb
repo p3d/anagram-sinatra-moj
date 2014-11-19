@@ -9,15 +9,6 @@ def app
   Sinatra::Application
 end
 
-# GET /crepitus
-# {"crepitus":["cuprites","pictures","piecrust"]}
-#
-# GET /crepitus,paste
-# {"crepitus":["cuprites","pictures","piecrust"],"paste":["pates","peats","septa","spate","tapes","tepas"]}
-#
-# GET /sdfwehrtgegfg
-# {"sdfwehrtgegfg":[]}
-
 describe "Anagram" do
   it "should return anagrams of a single word" do
     get '/crepitus'
