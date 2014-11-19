@@ -12,19 +12,35 @@ end
 describe "Anagram" do
   it "should return anagrams of a single word" do
     get '/crepitus'
-    single_word_response = {"crepitus" => ["cuprites","pictures","piecrust"]}
-    single_word_response.to_json.must_equal last_response.body
+
+    response = JSON.parse last_response.body
+    response["crepitus"].must_include("cuprites")
+    response["crepitus"].must_include("pictures")
+    response["crepitus"].must_include("piecrust")
   end
 
   it "should return anagrams of multiple words" do
     get '/crepitus,paste'
-    multi_word_response = {"crepitus"=>["cuprites","pictures","piecrust"],"paste"=>["pates","peats","septa","spate","tapes","tepas"]}
-    multi_word_response.to_json.must_equal last_response.body
+
+    response = JSON.parse last_response.body
+    response["crepitus"].must_include("cuprites")
+    response["crepitus"].must_include("pictures")
+    response["crepitus"].must_include("piecrust")
+
+    response["paste"].must_include("pates")
+    response["paste"].must_include("peats")
+    response["paste"].must_include("septa")
+    response["paste"].must_include("spate")
+    response["paste"].must_include("tapes")
+    response["paste"].must_include("tepas")
+
   end
 
   it "should return an empty array for a word not found in the dictionary" do
     get '/sdfwehrtgegfg'
-    nonsense_word_response = {"sdfwehrtgegfg"=>[]}
-    nonsense_word_response.to_json.must_equal last_response.body
+
+    response = JSON.parse last_response.body
+
+    assert_equal response['sdfwehrtgegfg'], []
   end
 end
