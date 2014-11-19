@@ -1,5 +1,5 @@
 file = File.open('dict.txt')
-counter = 0
+
 lookup = {}
 while (word = file.gets)
   unless word.nil?
