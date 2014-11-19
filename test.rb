@@ -10,10 +10,12 @@ def app
 end
 
 describe "Anagram" do
+
   it "should return anagrams of a single word" do
     get '/crepitus'
 
     response = JSON.parse last_response.body
+
     ["cuprites","pictures","piecrust"].each do |expected_word|
       response['crepitus'].must_include expected_word
     end
@@ -23,6 +25,7 @@ describe "Anagram" do
     get '/crepitus,paste'
 
     response = JSON.parse last_response.body
+
     ["cuprites","pictures","piecrust"].each do |expected_word|
       response['crepitus'].must_include expected_word
     end
