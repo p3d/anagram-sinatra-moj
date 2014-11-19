@@ -14,25 +14,22 @@ describe "Anagram" do
     get '/crepitus'
 
     response = JSON.parse last_response.body
-    response["crepitus"].must_include("cuprites")
-    response["crepitus"].must_include("pictures")
-    response["crepitus"].must_include("piecrust")
+    ["cuprites","pictures","piecrust"].each do |expected_word|
+      response['crepitus'].must_include expected_word
+    end
   end
 
   it "should return anagrams of multiple words" do
     get '/crepitus,paste'
 
     response = JSON.parse last_response.body
-    response["crepitus"].must_include("cuprites")
-    response["crepitus"].must_include("pictures")
-    response["crepitus"].must_include("piecrust")
+    ["cuprites","pictures","piecrust"].each do |expected_word|
+      response['crepitus'].must_include expected_word
+    end
 
-    response["paste"].must_include("pates")
-    response["paste"].must_include("peats")
-    response["paste"].must_include("septa")
-    response["paste"].must_include("spate")
-    response["paste"].must_include("tapes")
-    response["paste"].must_include("tepas")
+    ['pates','peats','septa','spate','tapes','tepas'].each do |expected_word|
+      response['paste'].must_include expected_word
+    end
 
   end
 
