@@ -19,7 +19,12 @@ def anagrams(words)
   @@dict ||= load_dictionary
 
   _words.each do |word|
-    _anagrams[word] = @@dict[alphabetise(word)].reject{|w| w == word}
+    _anagrams_for_word = @@dict[alphabetise(word)]
+    if _anagrams_for_word.nil?
+      _anagrams[word] = []
+    else
+      _anagrams[word] = _anagrams_for_word.reject{|w| w == word}
+    end
   end
 
   return _anagrams
