@@ -28282,6 +28282,7 @@ cupfuls
 cupolas
 cupping
 cuprite
+cuprites
 cuprous
 cupsful
 cupulae
@@ -153220,3 +153221,6 @@ electroencephalographically
 octamethylpyrophosphoramide
 dichlorodiphenyltrichloroethane
 pneumonoultramicroscopicsilicovolcanocon
+piecrust
+peats
+tepas

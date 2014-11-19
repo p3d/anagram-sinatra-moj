@@ -2,13 +2,16 @@ require 'sinatra'
 require 'sinatra/reloader' if development?
 require 'json'
 
+get '/' do
+  'Add a word to the url and I will try to find some anagrams for you. E.g. /'
+end
+
 get '/:words' do
   content_type :json
   words = params[:words]
   
   anagrams(words).to_json
 end
-
 
 def anagrams(words)
   _anagrams = {}
