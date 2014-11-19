@@ -3,7 +3,7 @@ require 'sinatra/reloader' if development?
 require 'json'
 
 get '/' do
-  'Add a word to the url and I will try to find some anagrams for you. E.g. /'
+  'Add a word to the url and I will try to find some anagrams for you. E.g. /paste'
 end
 
 get '/:words' do
